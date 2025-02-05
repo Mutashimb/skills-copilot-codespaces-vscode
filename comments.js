@@ -1,15 +1,14 @@
-//Create web Server
-function createWebServer() {
-  const express = require("express");
-  const app = express();
-  //Create a port
-  const port = 3000;
-  //Create a route
-  app.get("/comments", (req, res) => {
-    res.send("Post Comments Here");
-  });
-  //Listen to the port
-  app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
-  });
-}
+//create web server
+const express = require('express');
+const app = express();
+
+//get comments
+app.get('/comments', (req, res) => {
+  res.json([
+    { id: 1, body: "some comment" },
+    { id: 2, body: "other comment" }
+  ]);
+});
+
+//export web server
+module.exports = app;
